@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -16,9 +17,9 @@
         <RowConstraints />
     </rowConstraints>
     <children>
-        <Pane prefHeight="200.0" prefWidth="500.0">
+        <Pane prefHeight="243.0" prefWidth="500.0">
             <children>
-                <ComboBox fx:id="combo1" layoutX="28.0" layoutY="100.0" onShowing="#countrySelect" prefHeight="25.0" prefWidth="134.0" />
+                <ComboBox fx:id="combo1" layoutX="28.0" layoutY="100.0" onAction="#visibleCity" onShowing="#countrySelect" prefHeight="25.0" prefWidth="134.0" />
                 <Label layoutX="28.0" layoutY="77.0" text="Select country:">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
@@ -26,16 +27,15 @@
                 </Label>
 
 
-                <ComboBox fx:id="combo2" layoutX="199.0" layoutY="100.0" onAction="#popSelect" onShowing="#citySelect" prefHeight="25.0" prefWidth="134.0" />
-                <Label layoutX="372.0" layoutY="77.0" text="Population:">
+                <ComboBox fx:id="combo2" layoutX="199.0" layoutY="100.0" onShowing="#citySelect" prefHeight="25.0" prefWidth="134.0" visible="false" />
+                <Label fx:id="label3" layoutX="28.0" layoutY="133.0" text="Population:" visible="false">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
                 </Label>
 
 
-                <Label fx:id="population" layoutX="373.0" layoutY="104.0" text="blabla" />
-                <Label layoutX="199.0" layoutY="77.0" text="Select city:">
+                <Label fx:id="label2" layoutX="199.0" layoutY="77.0" text="Select city:" visible="false">
                     <font>
                         <Font name="Century Gothic" size="12.0" />
                     </font>
@@ -47,6 +47,18 @@
                         <Font name="Century Gothic" size="28.0" />
                     </font>
                 </Label>
+            <Button fx:id="button" onAction="#popSelect" layoutX="385.0" layoutY="100.0" mnemonicParsing="false" text="OK" visible="false">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
+            </Button>
+            <Pane layoutX="29.0" layoutY="143.0" prefHeight="80.0" prefWidth="201.0">
+               <children>
+                   <Label fx:id="popLabel" layoutX="14.0" layoutY="58.0" text="Population:" />
+                  <Label fx:id="countryLabel" layoutX="14.0" layoutY="32.0" text="Country:" />
+                  <Label fx:id="cityLabel" layoutX="14.0" layoutY="6.0" text="City:" />
+               </children>
+            </Pane>
 
             </children></Pane>
     </children>
