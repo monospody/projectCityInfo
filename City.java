@@ -1,7 +1,7 @@
 package sample;
 
 public class City {
-    private final String country;
+    private String country;
     private String name;
     private int population;
     private String code3;
