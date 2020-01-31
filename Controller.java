@@ -13,9 +13,7 @@ import org.json.simple.parser.ParseException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,6 +36,7 @@ public class Controller {
     @FXML public Label vs;
     @FXML public Label zs;
     @FXML public Label visibility;
+    @FXML public Button map;
     private List<City> cities = null;
     List<String> countries = null;
     public Controller() {
@@ -152,7 +151,7 @@ public class Controller {
         vs.setVisible(true);
         zs.setVisible(true);
         visibility.setVisible(true);
-
+        map.setVisible(true);
 
         String nameCity = (String) combo2.getValue();
         City city = null;
@@ -171,6 +170,27 @@ public class Controller {
         vs.setText("Východ slnka: "+w.getVsUpdate());
         zs.setText("Západ slnka: "+w.getZsUpdate());
         visibility.setText("Visiblity: "+w.getVisibility());
+
+
+    }
+
+
+    public void goMap(ActionEvent actionEvent) throws URISyntaxException, IOException, JSONException {
+        String nameCity = (String) combo2.getValue();
+        City city = null;
+        for(City s : cities) {
+            if (s.getName().equalsIgnoreCase(nameCity)) {
+                city = s;
+                break;
+            }
+        }
+        if(city == null){
+            return;
+        }
+
+        Weather w = new WebWeather().getData(city.getName(),city.getCode2());
+
+        java.awt.Desktop.getDesktop().browse(new URI("https://www.latlong.net/c/?lat="+w.getLat()+"&long="+w.getLon()));
 
 
     }
