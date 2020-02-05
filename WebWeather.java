@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.NoSuchFileException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -31,7 +32,7 @@ public class WebWeather {
                     conn.getInputStream()
             ));
             String output = br.readLine();
-           /* System.out.println(output);
+/*          System.out.println(output);
             System.out.println();
 
             JSONParser parser = new JSONParser();
@@ -71,7 +72,8 @@ public class WebWeather {
             System.out.println(temp);
 
             Object humidity = getSth3.get("humidity");
-            System.out.println(humidity);*/
+            System.out.println(humidity);
+ */
 
 
             JSONObject jsonObject5 = new JSONObject(output);
@@ -90,7 +92,7 @@ public class WebWeather {
 
             long vs = sys.getLong("sunrise");
             long zs = sys.getLong("sunset");
-            int visibility = jsonObject5.getInt("visibility");
+//            int visibility = jsonObject5.getInt("visibility");
 
             SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
             String vsUpdate = timeFormat.format(vs);
@@ -100,14 +102,12 @@ public class WebWeather {
 
 
 
-            return new Weather(city, name, temp, humidity, lon, lat,vsUpdate,zsUpdate,visibility);
+            return new Weather(city, name, temp, humidity, lon, lat,vsUpdate,zsUpdate);
 
-        }
-
-
+        }else throw new NoSuchFileException("City not found");
 
 
-        return null;
+
     }
 
 }

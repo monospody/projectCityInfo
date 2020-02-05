@@ -11,9 +11,9 @@ public class Weather {
     private double lat;
     private String vsUpdate;
     private String zsUpdate;
-    private int visibility;
+   // private int visibility;
 
-    public Weather(String name, String country, double temp, long humidity, double lon, double lat,String vsUpdate,String zsUpdate, int visibility) {
+    public Weather(String name, String country, double temp, long humidity, double lon, double lat,String vsUpdate,String zsUpdate /*int visibility*/) {
         this.name = name;
         this.country = country;
         this.temp = temp;
@@ -22,7 +22,7 @@ public class Weather {
         this.lat = lat;
         this.vsUpdate = vsUpdate;
         this.zsUpdate = zsUpdate;
-        this.visibility = visibility;
+       // this.visibility = visibility;
     }
 
     public String getName() {
@@ -57,8 +57,8 @@ public class Weather {
     public String getZsUpdate() {
         return zsUpdate;
     }
-    public int getVisibility() {
+  /*  public int getVisibility() {
         return visibility;
-    }
+    }*/
 
 }

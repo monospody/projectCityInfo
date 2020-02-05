@@ -169,7 +169,7 @@ public class Controller {
 
         vs.setText("Východ slnka: "+w.getVsUpdate());
         zs.setText("Západ slnka: "+w.getZsUpdate());
-        visibility.setText("Visiblity: "+w.getVisibility());
+      //  visibility.setText("Visiblity: "+w.getVisibility());
 
 
     }
